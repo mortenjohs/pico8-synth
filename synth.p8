@@ -12,11 +12,11 @@ function _update60()
  out_string = ""
  for i=0,5 do
   if btn(i) then
-			note = root+scale["scale"][i+1]
-  	play(form["form"],note,vol,"wave"..i)
-  	out_string = out_string..note_to_s(note).." "
+   note = root+scale["scale"][i+1]
+   play(form["form"],note,vol,"wave"..i)
+   out_string = out_string..note_to_s(note).." "
   else
-  	set_vol(o,"wave"..i)   
+   set_vol(o,"wave"..i)   
   end
  end
  
@@ -35,12 +35,12 @@ end
 
 function change_form(b)
  if (b&2 > 0) then
-	 form_i = min(#forms, form_i +1)
- 	form = forms[form_i]
+  form_i = min(#forms, form_i +1)
+  form = forms[form_i]
  end
  if (b&1 > 0) then
-	 form_i = max(1, form_i - 1)
- 	form = forms[form_i]
+  form_i = max(1, form_i - 1)
+  form = forms[form_i]
  end
  play(form["form"],root,vol,"wave0")
  menuitem(1,form["name"],function(b) change_form(b) end)
@@ -48,12 +48,12 @@ end
 
 function change_scale(b)
  if (b&2 > 0) then
-	 scale_i = min(1 + scale_i, #scales)
- 	scale = scales[scale_i]
+  scale_i = min(1 + scale_i, #scales)
+  scale = scales[scale_i]
  end
  if (b&1 > 0) then
   scale_i = max(scale_i-1, 1)
-	 scale = scales[scale_i]
+  scale = scales[scale_i]
  end
  menuitem(2,scale["name"],function(b) change_scale(b) end)
 end
@@ -107,12 +107,12 @@ do
   function set_vol(vol,ch)
     local id=state[ch]
     if id then
-	    state[ch]=id
- 	   local n=63-id
-  	  local p=0x3200+68*n
-    	poke(p+1,band(vol,7)*2+band(form,4)/4)
-    	poke2(p+66,256)
-    	sfx(n,id)
+     state[ch]=id
+     local n=63-id
+     local p=0x3200+68*n
+     poke(p+1,band(vol,7)*2+band(form,4)/4)
+     poke2(p+66,256)
+     sfx(n,id)
     end
   end
 end
@@ -133,14 +133,14 @@ scale = scales[scale_i]
 -->8
 -- forms
 forms = {
-	{name = "triangle", form = 0},
-	{name = "tilted saw", form = 1},
-	{name = "saw", form  = 2},
-	{name = "square", form = 3},
-	{name = "pulse", form = 4},
-	{name = "organ", form = 5},
-	{name = "noise", form  = 6},
-	{name = "phaser", form = 7}
+ {name = "triangle", form = 0},
+ {name = "tilted saw", form = 1},
+ {name = "saw", form  = 2},
+ {name = "square", form = 3},
+ {name = "pulse", form = 4},
+ {name = "organ", form = 5},
+ {name = "noise", form  = 6},
+ {name = "phaser", form = 7}
 }
 
 form_i = 1
