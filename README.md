@@ -15,9 +15,9 @@ Inspired by the [Makey Makey](https://makeymakey.com/).
 	- Left: 1st note
 	- Right: 2nd note
 	- Up: 3rd note
-	- Down 4th note
-	- 'c' 5th note
-	- 'x' 6th note
+	- Down: 4th note
+	- 'c': 5th note
+	- 'x': 6th note
 
 ## Todo
 
